@@ -1,0 +1,47 @@
+<%= form_with(model: valet_datum, local: true) do |form| %>
+  <% if valet_datum.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(valet_datum.errors.count, "error") %> prohibited this valet_datum from being saved:</h2>
+
+      <ul>
+      <% valet_datum.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :ticket %>
+    <%= form.text_field :ticket, id: :valet_datum_ticket %>
+  </div>
+
+  <div class="field">
+    <%= form.label :requested %>
+    <%= form.datetime_select :requested, id: :valet_datum_requested %>
+  </div>
+
+  <div class="field">
+    <%= form.label :accepted %>
+    <%= form.datetime_select :accepted, id: :valet_datum_accepted %>
+  </div>
+
+  <div class="field">
+    <%= form.label :assigned %>
+    <%= form.datetime_select :assigned, id: :valet_datum_assigned %>
+  </div>
+
+  <div class="field">
+    <%= form.label :completed %>
+    <%= form.datetime_select :completed, id: :valet_datum_completed %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description, id: :valet_datum_description %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

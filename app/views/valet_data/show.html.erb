@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ticket:</strong>
+  <%= @valet_datum.ticket %>
+</p>
+
+<p>
+  <strong>Requested:</strong>
+  <%= @valet_datum.requested %>
+</p>
+
+<p>
+  <strong>Accepted:</strong>
+  <%= @valet_datum.accepted %>
+</p>
+
+<p>
+  <strong>Assigned:</strong>
+  <%= @valet_datum.assigned %>
+</p>
+
+<p>
+  <strong>Completed:</strong>
+  <%= @valet_datum.completed %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @valet_datum.description %>
+</p>
+
+<%= link_to 'Edit', edit_valet_datum_path(@valet_datum) %> |
+<%= link_to 'Back', valet_data_path %>

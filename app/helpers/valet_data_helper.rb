@@ -1,0 +1,2 @@
+module ValetDataHelper
+end

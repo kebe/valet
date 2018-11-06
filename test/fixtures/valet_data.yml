@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ticket: MyString
+  requested: 2018-11-04 23:59:11
+  accepted: 2018-11-04 23:59:11
+  assigned: 2018-11-04 23:59:11
+  completed: 2018-11-04 23:59:11
+  description: MyString
+
+two:
+  ticket: MyString
+  requested: 2018-11-04 23:59:11
+  accepted: 2018-11-04 23:59:11
+  assigned: 2018-11-04 23:59:11
+  completed: 2018-11-04 23:59:11
+  description: MyString

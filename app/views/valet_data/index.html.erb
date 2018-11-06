@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Valet Data</h1>
+<%= form_tag import_valet_data_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %>
+<br/>
+<!-- <input type="text" data-provide='datepicker' > -->
+<div>
+  <%= select_tag "credit_card", options_for_select(@days_of_week, "MasterCard"), multiple: true, class: 'form_input'%>
+</div>
+
+<%= column_chart ValetDatum.specific_params(nil, nil, nil, nil) %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ticket</th>
+      <th>Requested</th>
+      <th>Accepted</th>
+      <th>Assigned</th>
+      <th>Completed</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @valet_data.each do |valet_datum| %>
+      <tr>
+        <td><%= valet_datum.ticket %></td>
+        <td><%= valet_datum.requested %></td>
+        <td><%= valet_datum.accepted %></td>
+        <td><%= valet_datum.assigned %></td>
+        <td><%= valet_datum.completed %></td>
+        <td><%= valet_datum.description %></td>
+        <td><%= link_to 'Show', valet_datum %></td>
+        <td><%= link_to 'Edit', edit_valet_datum_path(valet_datum) %></td>
+        <td><%= link_to 'Destroy', valet_datum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Valet Datum', new_valet_datum_path %>
