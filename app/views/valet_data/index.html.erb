@@ -7,11 +7,11 @@
 <% end %>
 <br/>
 <!-- <input type="text" data-provide='datepicker' > -->
-<div>
-  <%= select_tag "credit_card", options_for_select(@days_of_week, "MasterCard"), multiple: true, class: 'form_input'%>
-</div>
 
-<%= column_chart ValetDatum.specific_params(nil, nil, nil, nil) %>
+<div>
+  <h2><%= @day.to_date.strftime('%a %b %d') unless @day.blank? %><h2>
+</div>
+<%= column_chart ValetDatum.specific_timeframe(@day.to_i) %>
 
 <table>
   <thead>
@@ -45,4 +45,4 @@
 
 <br>
 
-<%= link_to 'New Valet Datum', new_valet_datum_path %>
+<%= link_to 'Average Number of Cars', average_cars_valet_data_path %>

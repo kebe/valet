@@ -24,9 +24,9 @@ class ValetDatum < ApplicationRecord
 
   
 	def self.average_number_of_cars(date, *days_of_week, start_time, end_time)
-		days_of_week = ['Tuesday', 'Thursday', 'Saturday']
-		start_time = "8"
-		end_time =  "11"
+		# days_of_week = ['Tuesday', 'Thursday', 'Saturday']
+		# start_time = "8"
+		# end_time =  "11"
 		#date = DateTime.now - 79
 
 		result = ValetDatum.all
@@ -44,7 +44,7 @@ class ValetDatum < ApplicationRecord
 	def self.specific_timeframe(num)
 		day_specified = DateTime.now.beginning_of_year + num
 
-		data = ValetDatum.where('requested BETWEEN ? AND ?', day_specified.beginning_of_day, day_specified.end_of_day)
+		data = ValetDatum.where('requested BETWEEN ? AND ?', day_specified.beginning_of_day, day_specified.end_of_day).order(:requested)
 		arr = []
 		data.each do |datum|
 			count = ValetDatum.where("requested <= '#{datum.requested}' and completed >=  '#{datum.requested}'").count

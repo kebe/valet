@@ -6,9 +6,15 @@ class ValetDataController < ApplicationController
   def index
     @valet_data = ValetDatum.all.limit(20)
     @day = params[:day]
-    @days_of_week = [ "sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday" ]
   end
 
+  def average_cars
+    params[:days]
+    @days_of_week = params[:days] #[ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ]
+    @start_hour = params[:start_hour]
+    @end_hour = params[:end_hour]
+    @average =  ValetDatum.average_number_of_cars(nil, @days_of_week, @start_hour, @end_hour).round(2)
+  end
   # GET /valet_data/1
   # GET /valet_data/1.json
   def show

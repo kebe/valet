@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :valet_data do
 	  collection do
 	    post :import
+	  	get :average_cars
 	  end
 	end
 

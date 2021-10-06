@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Average Number of Cars</h1>
+<hr />
+<div>
+	<h4>For the Days:</h4>
+		<% @days_of_week.each do |day| %>
+			<%= day %>
+		<% end %>
+	<h4>Between the hours of:</h4> <%= @start_hour.to_s %> and <%= @end_hour.to_s %>
+</div>
+<div>
+		<h4>The average is:</h4> <strong><%= @average.try(:to_f) %></strong>
+  <%#= select_tag "Days", options_for_select(@days_of_week , "All"), multiple: true, class: 'form_input'%>
+</div>
+
+<br />
+<br />
+<br />
+
+<%= link_to 'Back to Valet Data', valet_data_path %>
